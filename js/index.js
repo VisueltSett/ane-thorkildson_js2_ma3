@@ -1,5 +1,9 @@
 import { baseUrl } from "./settings/api.js";
 import displayMessage from "./components/common/displayMessage.js";
+import createMenu from "./components/common/createMenu.js";
+
+createMenu()
+
 
 const productsUrl = baseUrl + "products";
 
@@ -14,8 +18,8 @@ const productsUrl = baseUrl + "products";
 
         json.forEach(function (product) {
             container.innerHTML += `<a class="product" href="detail.html?id=${product.id}">
-                                        <h4>${product.name}</h4>
-                                        <p>Price: ${product.price}</p>
+                                        <h3>${product.Name}</h3>
+                                        <p>Price: ${product.Price}</p>
                                     </a>`;
         });
     } catch (error) {
