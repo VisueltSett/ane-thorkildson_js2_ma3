@@ -1,6 +1,7 @@
 import {getUsername} from '../../utils/storage.js';
 import logoutButton from "./logoutButton.js";
 
+
 export default function createMenu() {
     const {pathname} = document.location;
 
@@ -11,9 +12,14 @@ const username = getUsername();
 let authLink = `<a class="nav-link ${pathname === "/login.html" ? "active" : ""}" href="login.html">Login</a>`;
 
 if (username) {
-    authLink = `<span class="nav-link" style="color: black;"> Looking good today, ${username}! </span>`;
-}
+    authLink = `<button style="display:inline-block;" id="logout" type="button">Logout</button>`;
+  }
 
+let welcomeMessage = "";
+
+if (username){
+welcomeMessage = `<div>Looking good today, <span class="capitalize"> ${username}</span>!</div>`;
+}
 
 menuContainer.innerHTML = `<nav class="navbar navbar-expand-sm navbar-light bg-light">
 <a class="navbar-brand" href="/">Products</a>
@@ -27,11 +33,12 @@ menuContainer.innerHTML = `<nav class="navbar navbar-expand-sm navbar-light bg-l
       <a class="nav-link ${pathname === "/" ? "active" : ""}" href="/">Home<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item">
-    ${authLink}
+    <div id="welcomeMessage">${welcomeMessage}</div>
     </li>
-    <form class="form-inline">
-    <button class="btn btn-sm btn-outline-secondary" id="logout" type="button">Logout</button>
-  </form>
+    <li class="nav-item">
+    <div id="logoutBtnContainer"> ${authLink}</div>
+    </li>
+   
   </ul>
 </div>
 </nav>`;

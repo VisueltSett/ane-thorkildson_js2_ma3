@@ -21,7 +21,7 @@ function submitForm(event) {
     const passwordValue = password.value.trim();
 
     if (usernameValue.length === 0 || passwordValue.length === 0) {
-        return displayMessage("warning", "Invalid values", ".message-container");
+        return displayMessage("warning", "Login error. Invalid values", ".message-container");
     }
 
     doLogin(usernameValue, passwordValue);
@@ -43,6 +43,7 @@ async function doLogin(username, password) {
     try {
         const response = await fetch(url, options);
         const json = await response.json();
+        
 
         if (json.user) {
             saveToken(json.jwt);
@@ -52,7 +53,7 @@ async function doLogin(username, password) {
          }
 
         if (json.error) {
-            displayMessage("warning", "Invalid login details", ".message-container");
+            displayMessage("warning", "Login error. Invalid login details", ".message-container");
         }
 
         console.log(json);

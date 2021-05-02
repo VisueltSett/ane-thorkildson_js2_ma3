@@ -18,7 +18,7 @@ body {
 body {
 	font-family: "Montserrat", sans-serif;
 	font-weight: 400;
-	color: rgb(0, 0, 0, 0.75);
+	color: #333;
 }
 
 h1,
@@ -36,6 +36,7 @@ h3 {
 
 a {
 	text-decoration: none;
+	font-weight: 500;
 	color: #333;
 }
 a:hover,
@@ -44,14 +45,14 @@ a:focus {
 	text-decoration: underline;
 }
 
+.capitalize {text-transform: capitalize;}
+
 .navbar {
 	background-image: linear-gradient(to top, #dcc3f0 0%, #f6f3ff 100%);
 	background-size: 100% !important;
 	background-repeat: no-repeat;
 }
-.detailContainer {
-	padding-top: 2rem;
-}
+
 
 label {
 	display: block;
@@ -80,17 +81,27 @@ form input {
 	cursor: pointer;
 }
 #logout{
-    display:none;
     color: white;
     font-weight: 500;
     border-radius: .5rem;
     background: var(--primary-colour);
+	width: 100px;
+	margin-left: 2rem;
+	position: absolute;
+	right: 1rem;
 }
 
+@media (max-width: 570px){
+#logoutBtnContainer{
+	min-height: 50px;
+	margin-top: 1rem;
+}
+}
 a.nav-link,
-.nav-link {
-	padding: 1rem !important;
-	margin-right: 1rem;
+.nav-link, #logout, #welcomeMessage {
+	padding-top: .3125rem;
+padding-bottom: .3125rem;
+margin-right: 1rem;
 }
 
 a.nav-link.active,
@@ -102,7 +113,7 @@ a.backLink:active {
 }
 
 .container {
-	max-width: 1000px;
+	max-width: 85%;
 	margin: 0 auto;
 }
 
@@ -111,8 +122,7 @@ a.backLink:active {
 	flex-wrap: wrap;
 }
 
-.product,
-.detailsProduct {
+.product {
 	margin: 1rem;
 	margin-left: 0;
 	padding: 1rem;
@@ -122,13 +132,15 @@ a.backLink:active {
 	width: 250px;
 }
 .detailsProduct {
-	margin: 1rem;
-	margin-left: 0;
+	margin: 4rem auto;
 	padding: 1rem;
 	border-radius: 1rem;
 	border: 2px solid rgba(0, 0, 0, 0.05);
 	background: rgb(205, 156, 242, 0.2);
 	width: 500px;
+}
+.detailContainer {
+	padding-top: 2rem;
 }
 
 .message {
@@ -136,6 +148,7 @@ a.backLink:active {
 	padding: 1rem;
 	border: 1px solid grey;
 	color: grey;
+	margin: 2rem auto 4rem;
 }
 
 .message.error {
