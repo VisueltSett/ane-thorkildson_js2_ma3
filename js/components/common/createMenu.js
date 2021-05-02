@@ -1,4 +1,5 @@
 import {getUsername} from '../../utils/storage.js';
+import logoutButton from "./logoutButton.js";
 
 export default function createMenu() {
     const {pathname} = document.location;
@@ -12,8 +13,6 @@ let authLink = `<a class="nav-link ${pathname === "/login.html" ? "active" : ""}
 if (username) {
     authLink = `<span class="nav-link" style="color: black;"> Looking good today, ${username}! </span>`;
 }
-
-
 
 
 menuContainer.innerHTML = `<nav class="navbar navbar-expand-sm navbar-light bg-light">
@@ -36,5 +35,7 @@ menuContainer.innerHTML = `<nav class="navbar navbar-expand-sm navbar-light bg-l
   </ul>
 </div>
 </nav>`;
+
+logoutButton();
 
 }
